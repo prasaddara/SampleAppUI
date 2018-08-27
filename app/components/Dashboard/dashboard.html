@@ -1,0 +1,49 @@
+<div class="wrapper">
+    <div class="loader loader-default is-active" ng-show="showloader" data-text data-blink></div>
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-1.jpg">
+        <div class="logo">
+            <img src="assets/img/KattaKart_logo.png" width="120px" height="100px;">
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li ui-sref-active="active" class="active">
+                    <a ui-sref=".home">
+                        <i class="material-icons">dashboard</i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li ui-sref-active="active" class="active">
+                    <a ui-sref=".addcustomer">
+                        <i class="material-icons">person</i>
+                        <p>Add Customer</p>
+                    </a>
+                </li>
+                <li ui-sref-active="active" class="active">
+
+                    <a ui-sref=".viewcustomer">
+                        <i class="material-icons">content_paste</i>
+                        <p>View Customer</p>
+                    </a>
+                </li>
+                <li ui-sref-active="active" class="active">
+
+                    <a ui-sref=".addremarks">
+                        <i class="material-icons">library_books</i>
+                        <p> Add Remarks</p>
+                    </a>
+                </li>
+                <li ui-sref-active="active" class="active">
+                    <a ui-sref=".admin">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <p> Create Admin</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+
+</div>

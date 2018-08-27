@@ -1,0 +1,120 @@
+<div class="wrapper">
+    <div class="loader loader-default is-active" ng-show="showloader" data-text data-blink></div>
+    <div style="position: relative; max-height:600px;">
+        <div class="main-panel">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand"> Edit Customer Details</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <div class="logout">
+                                    <a ui-sref="login"><i class="fa fa-sign-out" aria-hidden="true" style="font-size:18px;text-transform:capitalize;"></i>Logout</a>
+                                    <p class="hidden-lg hidden-md">Profile</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content" style="min-height:520px;">
+                <div class="container" ng-controller="editcustomerCtrl">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4><b>Edit Customer Details</b></h4>
+                                    <!-- <p class="category">Complete your profile</p> -->
+                                </div>
+                                <div class="card-content">
+                                    <form name="editcustomerForm" ng-cloak>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label for="Mobile">Mobile Number<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" name="ContactNumber" class="form-control" ng-model="editcustomer.mobile" numbers-only minlength="10" maxlength="10"
+                                                        disabled="disabled" required>
+                                                    <span ng-show="editcustomerForm.ContactNumber.$touched && editcustomerForm.ContactNumber.$error.required" class="text-danger">Mobile
+                                                        Number is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group label-floating">
+                                                    <label for="name">Customer Name<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" id="name" name="customertxt" class="form-control" ng-model="editcustomer.name" maxlength="50" required>
+                                                    <span ng-show="editcustomerForm.customertxt.$touched && editcustomerForm.customertxt.$error.required" class="text-danger">Customer
+                                                        Name is required</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label for="email">Email<span class="required" style="color:red;">*</span></label>
+                                                    <input type="email" name="email" class="form-control" ng-model="editcustomer.email" overwrite-email required>
+                                                    <span ng-show="editcustomerForm.email.$touched && editcustomerForm.email.$error.email" class="text-danger">Invalid
+                                                        Email!</span>
+                                                    <span ng-show="editcustomerForm.email.$touched && editcustomerForm.email.$error.required" class="text-danger">Email
+                                                        is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="address">Address<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" name="address" class="form-control" ng-model="editcustomer.address" maxlength="200" required>
+                                                    <span ng-show="editcustomerForm.address.$touched && editcustomerForm.address.$error.required" class="text-danger">Address
+                                                        is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label for="date">Date<span class="required" style="color:red;">*</span></label></label>
+
+                                                    <input type="date" id="date" class="form-control" name="date" ng-model="editcustomer.assigndate" required>
+                                                    <span ng-show="editcustomerForm.date.$touched && editcustomerForm.date.$error.required" class="text-danger">Date
+                                                        is required
+                                                        <span class="error" style="color:red;" ng-show="editcustomerForm.date.$error.date">Required!</span>
+                                                        <span class="error" style="color:red;" ng-show="editcustomerForm.date.$error.date"> Not
+                                                            a valid date!</span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                </div>
+                                <button type="submit" ng-disabled="editcustomerForm.$invalid" class="btn  btn-md btn-block" ng-click="editcustomerCall(editcustomer)">Update</button>
+                                <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', today);
+
+</script>

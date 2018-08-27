@@ -1,0 +1,156 @@
+<div class="wrapper">
+    <div class="loader loader-default is-active" ng-show="showloader" data-text data-blink></div>
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-1.jpg">
+
+    </div>
+    <div style="position: relative; max-height:600px;">
+        <div class="main-panel">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand">Create Admin</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <div class="logout">
+                                    <a ui-sref="login"><i class="fa fa-sign-out" aria-hidden="true" style="font-size:18px;text-transform:capitalize;"></i>Logout</a>
+                                    <p class="hidden-lg hidden-md">Profile</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+
+                        </form>
+
+                    </div>
+                </div>
+            </nav>
+            <div class="content" style="min-height:520px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4><b>Create Admin</b></h4>
+                                    <!-- <p class="category">Complete your profile</p> -->
+                                </div>
+                                <div class="card-content">
+                                    <form name="createAdminForm" ng-cloak>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label for="Username">Username<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" name="usernametxt" class="form-control" ng-model="admin.loginId" maxlength="50" required>
+
+                                                    <span ng-show="createAdminForm.usernametxt.$touched && createAdminForm.usernametxt.$error.required" class="text-danger">Username
+                                                        is required</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group  label-floating">
+                                                    <label for="Password">Password<span class="required" style="color:red;">*</span></label>
+                                                    <input type="Password" name="password" class="form-control" ng-model="admin.password" minlength="3" maxlength="8" required>
+                                                    <span ng-show="createAdminForm.password.$touched && createAdminForm.password.$error.required" class="text-danger">Password
+                                                        is required</span>
+                                                    <span ng-show="createAdminForm.password.$error.minlength || createAdminForm.password.$error.maxlength" class="text-danger">Password
+                                                        length should be 8</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+
+                                                <div class="form-group label-floating">
+
+                                                    <label for="confirmpassword">&nbsp;&nbsp;Confirm Password<span class="required"
+                                                            style="color:red;">*</span></label>
+                                                    <input type="Password" name="confirmpassword" class="form-control" ng-model="confirmpassword" required>
+                                                    <span ng-show="createAdminForm.confirmpassword.$touched && createAdminForm.confirmpassword.$error.required" class="text-danger">Confirm
+                                                        Password is required</span><br>
+                                                    <span ng-show="createAdminForm.confirmpassword.$touched && admin.password!==confirmpassword" class="text-danger">Passwords
+                                                        do not match</span>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="control-label col-md-12 col-xs-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="email">&nbsp;&nbsp;Email<span class="required" style="color:red;">*</span></label>
+                                                    <input type="email" name="Emailtxt" class="form-control col-md-7 col-xs-12" ng-model="admin.emailId" required>
+
+                                                    <span ng-show="createAdminForm.Emailtxt.$touched && createAdminForm.Emailtxt.$error.email" class="text-danger">Invalid
+                                                        Email!</span>
+                                                    <span ng-show="createAdminForm.Emailtxt.$touched && createAdminForm.Emailtxt.$error.required" class="text-danger">Email
+                                                        is required</span>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="control-label col-md-12 col-xs-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="ContactNumber">&nbsp;&nbsp;Contact Number<span class="required"
+                                                            style="color:red;">*</span></label>
+                                                    <input type="text" name="ContactNumber" class="form-control" ng-model="admin.contactnumber" numbers-only minlength="10" maxlength="10"
+                                                        required>
+
+                                                    <span ng-show="createAdminForm.ContactNumber.$touched && createAdminForm.ContactNumber.$error.required" class="text-danger">Contact
+                                                        Number is required</span>
+
+
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="Station">&nbsp;&nbsp;Station<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" name="Stationtxt" class="form-control" ng-model="admin.station" maxlength="200" required>
+                                                    <span ng-show="createAdminForm.Stationtxt.$touched && createAdminForm.Stationtxt.$error.required" class="text-danger">Station
+                                                        is required</span>
+
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="Address">&nbsp;&nbsp;Address<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" class="form-control" name="Addresstxt" ng-model="admin.address" maxlength="200" required>
+
+                                                    <span ng-show="createAdminForm.Addresstxt.$touched && createAdminForm.Addresstxt.$error.required" class="text-danger">Address
+                                                        is required</span>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" ng-disabled="createAdminForm.$invalid" class="btn btn-common btn-md btn-block" ng-click="AdminCall(admin)">Create
+                                                Admin</button>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>

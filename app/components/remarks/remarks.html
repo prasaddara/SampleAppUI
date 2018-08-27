@@ -1,0 +1,117 @@
+<div class="wrapper">
+    <div class="loader loader-default is-active" ng-show="showloader" data-text data-blink></div>
+    <div style="position: relative; max-height:600px;">
+        <div class="main-panel">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand"> Add Remarks</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <div class="logout">
+                                    <a ui-sref="login"><i class="fa fa-sign-out" aria-hidden="true" style="font-size:18px;text-transform:capitalize;"></i>Logout</a>
+                                    <p class="hidden-lg hidden-md">Profile</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="content" style="min-height:520px;">
+                <div class="container" ng-controller="remarksCtrl">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4 class="title"><b>Add Remarks</b></h4>
+                                    <!-- <p class="category">Complete your profile</p> -->
+                                </div>
+                                <div class="card-content">
+                                    <form name="remarksForm" ng-cloak>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label for="Mobile">Mobile Number<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" name="ContactNumber" class="form-control" typeahead="Remarks.mobile for Remarks in viewcustomres | filter:$viewValue"
+                                                        autocomplete="off" ng-model="Remarks.mobile" ng-keyup="complete(mobile)"
+                                                        numbers-only minlength="10" maxlength="10" required>
+
+                                                    <span ng-show="remarksForm.ContactNumber.$error.minlength" class="text-danger"> phone
+                                                        number should be 10 digits</span>
+                                                    <span ng-show="remarksForm.ContactNumber.$touched && remarksForm.ContactNumber.$error.required" class="text-danger">Mobile
+                                                        Number is required</span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="ItemDescription">Item Description<span class="required" style="color:red;">*</span></label></label>
+                                                    <input type="text" class="form-control" name="idesc" ng-model="Remarks.itemdesc" autocomplete="off" required>
+                                                    <span ng-show="remarksForm.idesc.$touched && remarksForm.idesc.$error.required" class="text-danger"> Item
+                                                        Description is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label for="Remarks">Remarks<span class="required" style="color:red;">*</span></label>
+                                                    <input type="text" class="form-control" id="comment" name="remarks" ng-model="Remarks.remarks" autocomplete="off" required>
+                                                    <span ng-show="remarksForm.remarks.$touched && remarksForm.remarks.$error.required" class="text-danger">Remarks
+                                                        is required
+                                                        <p ng-show="remarksForm.remarks.$invalid && !remarksForm.remarks.$pristine" style="color:red;" class="help-danger">remarks
+                                                            are required.</p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label for="Remarks">Date<span class="required" style="color:red;">*</span></label></label>
+                                                    <input type="date" id="date" class="form-control" name="date" ng-model="Remarks.assigndate" required>
+                                                    <span ng-show="remarksForm.date.$touched && remarksForm.date.$error.required" class="text-danger">Date
+                                                        is required
+                                                        <span class="error" style="color:red;" ng-show="remarksForm.date.$error.date">Required!</span>
+                                                        <span class="error" style="color:red;" ng-show="remarksForm.date.$error.date"> Not
+                                                            a valid date!</span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" ng-disabled="remarksForm.$invalid || remarksForm.$pending" class="btn btn-common btn-md btn-block"
+                                            ng-click="remarksCall(Remarks)">Add Remarks</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', today);
+
+</script>
